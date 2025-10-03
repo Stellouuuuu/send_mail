@@ -1,0 +1,11 @@
+# Utilise l'image PHP avec Apache
+FROM php:8.2-apache
+
+# Copie le code du dépôt dans le conteneur
+COPY . /var/www/html/
+
+# Active les modules nécessaires (ex: mail)
+RUN docker-php-ext-install mysqli pdo pdo_mysql
+
+# Assure que l'Apache écoute sur le port 10000 (Render)
+EXPOSE 10000
